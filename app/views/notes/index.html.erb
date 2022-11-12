@@ -2,5 +2,8 @@
 
 <%= render @task.notes %>
 
-<%= link_to "Back to Task", task_path(@task) %><br>
-<%= link_to "New Note", new_task_note_path(@task), class: "btn btn-primary mt-3" %>
+<%= link_to "Back to Task", task_path(@task) %> | 
+
+<%= link_to "All Tasks", tasks_path %>
+<br>
+<%= link_to "New Note", new_task_note_path, class: "btn btn-primary mt-3" %>

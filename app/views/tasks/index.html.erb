@@ -1,7 +1,27 @@
-<h1>Tasks</h1>
-
-<% @tasks.each do |task| %>
-  <%= render task %>
-<% end %>
+<h1>Patients</h1>
 
 <p><%= link_to "New Task", new_task_path, class:"btn btn-outline-dark" %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Task Name</th>
+      <th scope="col">Due Date</th>
+      <th scope="col">Priority</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+    <tr>
+      <td><%= link_to_unless_current task.name, tasks_path %></td>
+      <td><%= task.due_date %></td>
+      <td><%= task.priority %></td>
+      <td><%= link_to "Show", task_path(task.id) %> | <%= link_to "Edit", edit_task_path(task.id) %> | 
+      <%= link_to "Delete", task_path(task.id), method: :delete, form: { data: {turbo_confirm: "Are you sure?" } } %></td>
+      <td><%= link_to "Records", task_notes_path(task.id), class:'btn btn-success' %> <%= link_to "Charts", task_notes_path(task.id), class:'btn btn-info' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
