@@ -1,3 +1,7 @@
-<h1>New Chart for <%= @task.name %></h1>
+<h1>Create New Chart for <%= @task.name %></h1>
 
-<%= render 'form' %>
+<% if defined?(Note.where(task_id: params[:task_id]).last.id) %>
+  <%= render 'add' %>
+<% else %>
+  <%= render 'form' %>
+<% end %>
