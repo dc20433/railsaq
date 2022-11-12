@@ -1,0 +1,4 @@
+<div id="<%= dom_id(note) %>" class="note">
+  <h3>Title: <%= link_to_unless_current note.title, task_note_path(@task,note) %></h3>
+  <p><strong>Body message: </strong><%= note.body %></p>
+</div>

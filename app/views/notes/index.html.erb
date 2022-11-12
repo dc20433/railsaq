@@ -1,2 +1,6 @@
 <h1>Notes for <%= @task.name %></h1>
-<p>Find me in app/views/notes/index.html.erb</p>
+
+<%= render @task.notes %>
+
+<%= link_to "Back to Task", task_path(@task) %><br>
+<%= link_to "New Note", new_task_note_path(@task), class: "btn btn-primary mt-3" %>

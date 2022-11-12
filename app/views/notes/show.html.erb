@@ -1,0 +1,8 @@
+<h1>Note for <%= @task.name %></h1>
+
+<%= render @note %>
+
+<%= link_to "Edit Note", edit_task_note_path(@task,@note) %> |
+<%= link_to "All Notes", task_notes_path(@task) %>
+<br>
+<%= button_to "Delete Note", [@task,@note], method: :delete, class: "btn btn-danger mt-3", from: { data: { turbo_confirm: "Are you sure?" } } %>
