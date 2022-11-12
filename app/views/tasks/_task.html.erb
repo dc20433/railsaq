@@ -1,0 +1,5 @@
+<div id="<%= dom_id(task) %>" class="task">
+    <p><strong>Name: </strong> <%= link_to_unless_current task.name, task %></p>
+    <p><strong>Due Date: </strong> <%=task.due_date %></p>
+    <p><strong>Priority: </strong> <%=task.priority %></p>
+</div>

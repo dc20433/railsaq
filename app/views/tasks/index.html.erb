@@ -1,0 +1,7 @@
+<h1>Tasks</h1>
+
+<% @tasks.each do |task| %>
+  <%= render task %>
+<% end %>
+
+<p><%= link_to "New Task", new_task_path, class:"btn btn-outline-dark" %></p>

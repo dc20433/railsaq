@@ -1,0 +1,7 @@
+<%= bootstrap_form_for(@task) do |f| %>
+  <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+  <%= f.text_field :name %>
+  <%= f.date_field :due_date %>
+  <%= f.number_field :priority %>
+  <%= f.primary @task.persisted? ? "Update Task" : "Create Task" %>
+<% end %>
