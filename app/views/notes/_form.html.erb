@@ -1,6 +1,9 @@
+<% @n = Note.where(task_id: params[:task_id]) %>
+
+
 <%= bootstrap_form_with(model: [@task,@note]) do |f| %>
   <%= f.alert_message "Please fix the errors below.", error_summary: false %>
-  <%= f.text_field :title %>
-  <%= f.text_field :body %>
+  <%= f.text_field :title, value: @n.last.title %>
+  <%= f.text_field :body, value: @n.last.body %>
   <%= f.primary @note.persisted? ? "Update Note" : "Create Note" %>
 <% end %>

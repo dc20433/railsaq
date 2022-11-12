@@ -1,9 +1,29 @@
-<h1>Notes for <%= @task.name %></h1>
+<h1>Charts for <%= @task.name %></h1>
 
-<%= render @task.notes %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Task_ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Note Boday</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @task.notes.each do |note| %>
+    <tr>
+      <td><%= note.id %></td>
+      <td><%= note.task_id %></td>
+      <td><%= note.title %></td>
+      <td><%= link_to_unless_current note.body, task_note_path(@task,note) %></td>
 
-<%= link_to "Back to Task", task_path(@task) %> | 
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "All Tasks", tasks_path %>
+<%= link_to "Patients", tasks_path %>
 <br>
 <%= link_to "New Note", new_task_note_path, class: "btn btn-primary mt-3" %>
+

@@ -1,11 +1,12 @@
 <h1>Patients</h1>
 
-<p><%= link_to "New Task", new_task_path, class:"btn btn-outline-dark" %></p>
+<p><%= link_to "New Patient", new_task_path, class:"btn btn-outline-dark" %></p>
 
-<table class="table">
+<table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Task Name</th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
       <th scope="col">Due Date</th>
       <th scope="col">Priority</th>
       <th scope="col"></th>
@@ -15,11 +16,10 @@
   <tbody>
     <% @tasks.each do |task| %>
     <tr>
-      <td><%= link_to_unless_current task.name, tasks_path %></td>
+      <td><%= task.id %></td>
+      <td><%= link_to_unless_current task.name, task_path(task.id) %></td>
       <td><%= task.due_date %></td>
       <td><%= task.priority %></td>
-      <td><%= link_to "Show", task_path(task.id) %> | <%= link_to "Edit", edit_task_path(task.id) %> | 
-      <%= link_to "Delete", task_path(task.id), method: :delete, form: { data: {turbo_confirm: "Are you sure?" } } %></td>
       <td><%= link_to "Records", task_notes_path(task.id), class:'btn btn-success' %> <%= link_to "Charts", task_notes_path(task.id), class:'btn btn-info' %></td>
     </tr>
     <% end %>
