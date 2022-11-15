@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
+  get "/auth/:provider/callback" => "authentications#create"
+
   resources :users
   resources :sessions, except: [:index, :edit, :update, :show, :new, :destroy]
   resources :tasks do

@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate
   before_action :load_task, except: [:new, :index, :create]
 
   def index
@@ -11,6 +12,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new task_params
+    @task.user = current_user
     if @task.save 
       redirect_to tasks_path, notice: "Task created."
     else

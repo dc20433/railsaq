@@ -62,6 +62,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "guard"
+  gem "guard-minitest"
 end
 
 group :test do
@@ -69,6 +71,14 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  # Added Testing Gem
+  gem "minitest-reporters"
+  gem "factory_bot_rails"
+  gem "mocha"
 end
 
 gem "bootstrap_form", "~> 5.1"
+
+#Omniauth
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'

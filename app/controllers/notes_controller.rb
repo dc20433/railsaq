@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_action :authenticate
   before_action :load_task
   before_action :load_note, except: [:index, :new, :create]
 
@@ -44,7 +45,7 @@ class NotesController < ApplicationController
   end
 
   def load_task
-    @task = Task.find params[:task_id]
+    @task = current_user.tasks.find params[:task_id]
   end
   
   def load_note

@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  belongs_to :user
   has_many :notes
 
   validates :name, presence: true
@@ -8,7 +9,7 @@ class Task < ApplicationRecord
 
 
   def validates_due_date_in_future
-    if due_date.present? && due_date.past?
+    if !self.persisted? && due_date.present? && due_date.past?
       errors.add(:due_date, "Can't be in the past")
     end
   end

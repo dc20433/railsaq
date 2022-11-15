@@ -5,3 +5,5 @@
   <%= f.password_field :password %>
   <%= f.primary "Log In" %>
 <% end %>
+
+<%= button_to "Login with Github", "/auth/github", class: "btn btn-outline-success, mt-3", data: { turbo: false} %>

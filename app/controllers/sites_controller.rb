@@ -1,5 +1,6 @@
 class SitesController < ApplicationController
   def index
+    session[:user_id] = nil
   end
 
   def about

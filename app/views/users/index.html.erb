@@ -1,0 +1,24 @@
+<h1>Users</h1>
+
+<p><%= link_to "New User", new_user_path, class:"btn btn-outline-dark" %></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Currently logged in?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= link_to_unless_current user.name, user_path(user.id) %></td>
+      <td><%= user.email %></td>
+      <td><%= user.name == current_user.name ? "Yes" : "No" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
